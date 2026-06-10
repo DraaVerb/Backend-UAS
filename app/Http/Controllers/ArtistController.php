@@ -1,22 +1,64 @@
-public function index()
-{
-    $artists = Artist::all();
-    return view('songs.artist.index', compact('artists'));
-}
+<?php
 
-public function create()
-{
-    return view('songs.artist.create');
-}
+namespace App\Http\Controllers;
 
-public function show($id)
-{
-    $artist = Artist::findOrFail($id);
-    return view('songs.artist.show', compact('artist'));
-}
+use App\Models\Artist;
+use Illuminate\Http\Request;
 
-public function edit($id)
+class ArtistController extends Controller
 {
-    $artist = Artist::findOrFail($id);
-    return view('songs.artist.edit', compact('artist'));
+    public function index()
+    {
+        $artists = Artist::all();
+        return view('songs.artist.index', compact('artists'));
+    }
+
+    public function create()
+    {
+        return view('songs.artist.create');
+    }
+
+    public function store(Request $request)
+    {
+        Artist::create([
+            'name' => $request->name,
+            'country' => $request->country,
+            'description' => $request->description
+        ]);
+
+        return redirect('/artists');
+    }
+
+    public function show($id)
+    {
+        $artist = Artist::findOrFail($id);
+        return view('songs.artist.show', compact('artist'));
+    }
+
+    public function edit($id)
+    {
+        $artist = Artist::findOrFail($id);
+        return view('songs.artist.edit', compact('artist'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $artist = Artist::findOrFail($id);
+
+        $artist->update([
+            'name' => $request->name,
+            'country' => $request->country,
+            'description' => $request->description
+        ]);
+
+        return redirect('/artists');
+    }
+
+    public function destroy($id)
+    {
+        $artist = Artist::findOrFail($id);
+        $artist->delete();
+
+        return redirect('/artists');
+    }
 }

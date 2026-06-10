@@ -9,6 +9,9 @@
     <input type="text" name="country" placeholder="Country">
     <br><br>
 
+    <textarea name="description" placeholder="Artist Description" rows="5" cols="40"></textarea>
+    <br><br>
+
     <button type="submit">
         Save
     </button>
