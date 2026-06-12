@@ -17,10 +17,10 @@
             background-attachment: fixed;
             min-height:100vh;
             color:white;
-            font-family: Arial, sans-serif;
+            font-family:Arial, sans-serif;
         }
 
-        .container-custom{
+        .container{
             padding:40px;
         }
 
@@ -29,8 +29,8 @@
             font-weight:bold;
 
             text-shadow:
-                0 0 15px rgba(0,0,0,.6),
-                0 0 30px rgba(0,0,0,.3);
+                0 0 15px rgba(29,185,84,.6),
+                0 0 30px rgba(29,185,84,.3);
         }
 
         .spotify-btn{
@@ -39,29 +39,29 @@
 
             color:white;
 
-            border:none;
+            text-decoration:none;
 
-            padding:12px 24px;
+            padding:12px 25px;
 
             border-radius:12px;
 
-            text-decoration:none;
-
             font-weight:bold;
-
-            transition:.3s;
         }
 
         .spotify-btn:hover{
 
             background:#3a3a3a;
+        }
 
-            color:#ffffff;
+        .hero{
 
-            transform:translateY(-2px);
+            background:rgba(255,255,255,.08);
 
-            box-shadow:
-                0 0 15px rgba(255,255,255,.15);
+            border-radius:20px;
+
+            padding:25px;
+
+            margin:25px 0;
         }
 
         .song-card{
@@ -82,8 +82,7 @@
             transform:translateY(-5px);
 
             box-shadow:
-                0 0 20px rgba(29,185,84,.2),
-                0 10px 30px rgba(0,0,0,.5);
+                0 0 20px rgba(29,185,84,.2);
         }
 
         .song-link{
@@ -102,34 +101,14 @@
             color:#1DB954;
         }
 
-        .hero{
-
-            background:rgba(255,255,255,.08);
-
-            backdrop-filter:blur(10px);
-
-            border-radius:20px;
-
-            padding:25px;
-
-            margin-bottom:30px;
-        }
-
-        .hero p{
-
-            color:#dcdcdc;
-
-            margin-top:10px;
-        }
-
     </style>
 
 </head>
 <body>
 
-<div class="container-custom">
+<div class="container">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
 
         <h1 class="page-title">
             🎵 Song List
@@ -146,9 +125,7 @@
 
     <div class="hero">
 
-        <h2>
-            🎧 Discover Music
-        </h2>
+        <h2>🎧 Discover Music</h2>
 
         <p>
             Browse your song collection and manage your music library.
