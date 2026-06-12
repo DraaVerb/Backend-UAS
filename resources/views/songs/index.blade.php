@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Song List</title>
-</head>
-<body>
+<h1>Artist List</h1>
 
-<h1>Song List</h1>
+<a href="/artists/create">Add Artist</a>
 
-<a href="/songs/create">Add Song</a>
-
-<hr>
-
-@foreach($songs as $song)
-
-<p>
-    <a href="/songs/{{ $song->id }}">
-        {{ $song->title }}
-    </a>
-</p>
-
+@foreach($artists as $artist)
+    <p>
+        <a href="/artists/{{ $artist->id }}">
+            {{ $artist->name }}
+        </a>
+    </p>
 @endforeach
-
-</body>
-</html>

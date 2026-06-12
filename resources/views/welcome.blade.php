@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Music Player</title>
-</head>
-<body>
+<h1>Music Player</h1>
 
-    <h1>Music Player</h1>
+<a href="/songs">Manage Songs</a>
 
-    <a href="/songs">Manage Songs</a>
+<br><br>
 
-</body>
-</html>
+<a href="/artists">Manage Artists</a>

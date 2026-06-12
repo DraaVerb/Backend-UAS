@@ -1,33 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Song</title>
-</head>
-<body>
+<h1>Add Artist</h1>
 
-<h1>Add Song</h1>
-
-<form action="/songs" method="POST">
-
+<form action="/artists" method="POST">
     @csrf
 
-    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="name" placeholder="Artist Name">
     <br><br>
 
-    <input type="text" name="artist" placeholder="Artist">
-    <br><br>
-
-    <input type="text" name="album" placeholder="Album">
-    <br><br>
-
-    <input type="number" name="duration" placeholder="Duration">
+    <input type="text" name="country" placeholder="Country">
     <br><br>
 
     <button type="submit">
         Save
     </button>
-
 </form>
-
-</body>
-</html>

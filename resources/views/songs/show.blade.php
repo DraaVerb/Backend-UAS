@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Song Detail</title>
-</head>
-<body>
+<h1>Artist Detail</h1>
 
-<h1>Song Detail</h1>
+<p>Name : {{ $artist->name }}</p>
+<p>Country : {{ $artist->country }}</p>
 
-<p>Title: {{ $song->title }}</p>
-<p>Artist: {{ $song->artist }}</p>
-<p>Album: {{ $song->album }}</p>
-<p>Duration: {{ $song->duration }}</p>
-
-<a href="/songs">Back</a>
-
-</body>
-</html>
+<a href="/artists">
+    Back
+</a>
