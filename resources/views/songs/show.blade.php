@@ -2,17 +2,195 @@
 <html>
 <head>
     <title>Song Detail</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(
+                135deg,
+                #000000 0%,
+                #031b0b 25%,
+                #0a3d1e 60%,
+                #1DB954 100%
+            );
+
+            background-attachment: fixed;
+            min-height:100vh;
+            color:white;
+        }
+
+        .container{
+
+            width:850px;
+
+            margin:50px auto;
+
+            background:rgba(20,20,20,.92);
+
+            border-radius:25px;
+
+            padding:40px;
+
+            box-shadow:
+                0 0 20px rgba(29,185,84,.2);
+        }
+
+        .header{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:30px;
+        }
+
+        .album-cover{
+
+            width:220px;
+            height:220px;
+
+            border-radius:20px;
+
+            background:linear-gradient(
+                135deg,
+                #1DB954,
+                #000000
+            );
+
+            display:flex;
+
+            justify-content:center;
+            align-items:center;
+
+            font-size:90px;
+
+            box-shadow:
+                0 0 20px rgba(29,185,84,.5);
+        }
+
+        .song-title{
+
+            font-size:55px;
+
+            font-weight:bold;
+
+            margin-bottom:10px;
+        }
+
+        .artist{
+
+            font-size:22px;
+
+            color:#d0d0d0;
+        }
+
+        .details{
+
+            margin-top:40px;
+        }
+
+        .detail-item{
+
+            background:rgba(255,255,255,.08);
+
+            padding:18px;
+
+            border-radius:15px;
+
+            margin-bottom:15px;
+        }
+
+        .detail-item strong{
+
+            color:#1DB954;
+        }
+
+        .back-btn{
+
+            display:inline-block;
+
+            margin-top:20px;
+
+            background:#1DB954;
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 25px;
+
+            border-radius:12px;
+
+            font-weight:bold;
+        }
+
+        .back-btn:hover{
+
+            background:#1ed760;
+        }
+
+    </style>
+
 </head>
 <body>
 
-<h1>Song Detail</h1>
+<div class="container">
 
-<p>Title: {{ $song->title }}</p>
-<p>Artist: {{ $song->artist }}</p>
-<p>Album: {{ $song->album }}</p>
-<p>Duration: {{ $song->duration }}</p>
+    <div class="header">
 
-<a href="/songs">Back</a>
+        <div class="album-cover">
+            🎵
+        </div>
+
+        <div>
+
+            <div class="song-title">
+                {{ $song->title }}
+            </div>
+
+            <div class="artist">
+                🎤 {{ $song->artist }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="details">
+
+        <div class="detail-item">
+            <strong>💿 Album:</strong>
+            {{ $song->album }}
+        </div>
+
+        <div class="detail-item">
+            <strong>⏱ Duration:</strong>
+            {{ $song->duration }} seconds
+        </div>
+
+        <div class="detail-item">
+            <strong>🆔 Song ID:</strong>
+            {{ $song->id }}
+        </div>
+
+    </div>
+
+    <a href="/songs"
+       class="back-btn">
+
+        ← Back to Songs
+
+    </a>
+
+</div>
 
 </body>
 </html>
+

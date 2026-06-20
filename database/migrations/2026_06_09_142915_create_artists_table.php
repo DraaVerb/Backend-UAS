@@ -10,22 +10,21 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('songs', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->string('artist');
-        $table->string('album');
-        $table->string('duration');
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('artists', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('country');
+            $table->text('description');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('songs');
+        Schema::dropIfExists('artists');
     }
 };
