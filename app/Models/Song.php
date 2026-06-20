@@ -10,6 +10,12 @@ class Song extends Model
         'title',
         'artist',
         'album',
-        'duration'
+        'duration',
+        'genre_id'
     ];
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

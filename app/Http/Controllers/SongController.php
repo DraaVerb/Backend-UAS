@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -16,7 +17,9 @@ class SongController extends Controller
 
     public function create()
     {
-        return view('songs.create');
+        $genres = Genre::all();
+
+        return view('songs.create', compact('genres'));
     }
 
     public function store(Request $request)
@@ -26,6 +29,7 @@ class SongController extends Controller
             'artist' => $request->artist,
             'album' => $request->album,
             'duration' => $request->duration,
+            'genre_id' => $request->genre_id,
         ]);
 
         return redirect('/songs');
@@ -33,7 +37,7 @@ class SongController extends Controller
 
     public function show($id)
     {
-        $song = Song::findOrFail($id);
+        $song = Song::with('genre')->findOrFail($id);
 
         return view('songs.show', compact('song'));
     }

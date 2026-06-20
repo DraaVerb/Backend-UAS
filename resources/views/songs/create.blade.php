@@ -23,6 +23,19 @@
     <input type="number" name="duration" placeholder="Duration">
     <br><br>
 
+    <label>Genre</label>
+    <br>
+
+    <select name="genre_id">
+        @foreach($genres as $genre)
+            <option value="{{ $genre->id }}">
+                {{ $genre->name }}
+            </option>
+        @endforeach
+    </select>
+
+    <br><br>
+
     <button type="submit">
         Save
     </button>
