@@ -8,7 +8,7 @@ class Playlist extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
     ];
 
     public function songs()
