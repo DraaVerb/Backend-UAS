@@ -136,6 +136,42 @@
             background:#1ed760;
         }
 
+        .action-btn{
+
+            display:inline-block;
+
+            margin-top:20px;
+            margin-left:10px;
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 25px;
+
+            border-radius:12px;
+
+            font-weight:bold;
+        }
+
+        .btn-comment{
+            background:#2b2b2b;
+        }
+
+        .btn-comment:hover{
+            background:#3a3a3a;
+            color:white;
+        }
+
+        .btn-rating{
+            background:#b8860b;
+        }
+
+        .btn-rating:hover{
+            background:#ffc107;
+            color:white;
+        }
+
     </style>
 
 </head>
@@ -182,12 +218,9 @@
 
     </div>
 
-    <a href="/songs"
-       class="back-btn">
-
-        ← Back to Songs
-
-    </a>
+    <a href="/songs" class="back-btn">← Back to Songs</a>
+    <a href="/comments/create?song_id={{ $song->id }}" class="action-btn btn-comment">💬 Leave a Comment</a>
+    <a href="/ratings/create?song_id={{ $song->id }}" class="action-btn btn-rating">⭐ Rate this Song</a>
 
 </div>
 
