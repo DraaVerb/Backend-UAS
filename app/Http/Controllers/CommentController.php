@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Comment;
+use App\Models\Song;
+use Illuminate\Http\Request;
+
+class CommentController extends Controller
+{
+    public function index()
+    {
+        $comments = Comment::with('song')->latest()->get();
+        return view('comments.index', compact('comments'));
+    }
+
+    public function create()
+    {
+        $songs = Song::all();
+        return view('comments.create', compact('songs'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'song_id'        => 'required|exists:songs,id',
+            'commenter_name' => 'required|string|max:255',
+            'content'        => 'required|string|max:1000',
+        ]);
+
+        Comment::create([
+            'song_id'        => $request->song_id,
+            'commenter_name' => $request->commenter_name,
+            'content'        => $request->content,
+        ]);
+
+        return redirect('/comments')->with('success', 'Comment added successfully!');
+    }
+
+    public function show($id)
+    {
+        $comment = Comment::with('song')->findOrFail($id);
+        return view('comments.show', compact('comment'));
+    }
+
+    public function destroy($id)
+    {
+        Comment::findOrFail($id)->delete();
+        return redirect('/comments')->with('success', 'Comment deleted.');
+    }
+}
