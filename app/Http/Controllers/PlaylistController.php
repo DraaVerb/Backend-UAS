@@ -3,60 +3,67 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class PlaylistController extends Controller
 {
     public function index()
     {
-        $playlists = Playlist::all();
+        $playlists = Playlist::withCount('songs')->get();
         return view('playlists.index', compact('playlists'));
     }
 
     public function create()
     {
-        return view('playlists.create');
+        $songs = Song::all();
+        return view('playlists.create', compact('songs'));
     }
 
     public function store(Request $request)
     {
-        Playlist::create([
-            'name' => $request->name,
-            'description' => $request->description
+        $playlist = Playlist::create([
+            'name'        => $request->name,
+            'description' => $request->description,
         ]);
+
+        if ($request->has('song_ids')) {
+            $playlist->songs()->attach($request->song_ids);
+        }
 
         return redirect('/playlists');
     }
 
     public function show($id)
     {
-        $playlist = Playlist::findOrFail($id);
+        $playlist = Playlist::with('songs.genre')->findOrFail($id);
         return view('playlists.show', compact('playlist'));
     }
 
     public function edit($id)
     {
-        $playlist = Playlist::findOrFail($id);
-        return view('playlists.edit', compact('playlist'));
+        $playlist     = Playlist::with('songs')->findOrFail($id);
+        $songs        = Song::all();
+        $selectedSongs = $playlist->songs->pluck('id')->toArray();
+        return view('playlists.edit', compact('playlist', 'songs', 'selectedSongs'));
     }
 
     public function update(Request $request, $id)
     {
         $playlist = Playlist::findOrFail($id);
-
         $playlist->update([
-            'name' => $request->name,
-            'description' => $request->description
+            'name'        => $request->name,
+            'description' => $request->description,
         ]);
+
+        $playlist->songs()->sync($request->song_ids ?? []);
 
         return redirect('/playlists');
     }
 
     public function destroy($id)
     {
-        $playlist = Playlist::findOrFail($id);
-        $playlist->delete();
-
+        Playlist::findOrFail($id)->delete();
         return redirect('/playlists');
     }
 }

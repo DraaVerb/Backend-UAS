@@ -8,16 +8,11 @@ class Playlist extends Model
 {
     protected $fillable = [
         'name',
-
         'description'
-    ];
-
-        'description',
     ];
 
     public function songs()
     {
         return $this->belongsToMany(Song::class);
     }
-
 }

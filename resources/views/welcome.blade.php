@@ -228,6 +228,12 @@
             Browse and manage your music collection.
         </p>
 
+        <br>
+
+        <a href="/songs">
+            Open Songs
+        </a>
+
     </div>
 
     <div class="card">
@@ -238,18 +244,29 @@
             Explore legendary artists and their stories.
         </p>
 
+        <br>
+
+        <a href="/artists">
+            Open Artists
+        </a>
+
     </div>
 
     <div class="card">
 
-        <h3>🎧 Spotify Style</h3>
+    <h3>🎧 Spotify Style</h3>
 
-        <p>
-            Modern interface inspired by Spotify.
-        </p>
+    <p>
+        Modern interface inspired by Spotify.
+    </p>
 
-    </div>
+    <br>
 
+    <a href="/">
+        Explore
+    </a>
+
+</div>
     <div class="card">
 
         <h3>📂 Playlists</h3>
@@ -264,30 +281,24 @@
             Open Playlist
         </a>
 
-    
+    </div>
+
     <div class="card">
 
-    <h3>❤️ Favorite Songs</h3>
+        <h3>❤️ Favorite Songs</h3>
 
-    <p>
+        <p>
+            Save your favorite music collection.
+        </p>
 
-        Save your favorite music collection.
+        <br>
 
-    </p>
+        <a href="/favorites">
+            Open Favorites
+        </a>
 
-    <br>
+    </div>
 
-    <a href="/favorites"
-       style="
-       color:#1DB954;
-       text-decoration:none;
-       font-weight:bold;">
-
-       Open Favorites
-
-    </a>
-
-        </div>
 </div>
 
 <footer>

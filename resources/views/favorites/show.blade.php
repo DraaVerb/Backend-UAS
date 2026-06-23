@@ -2,11 +2,12 @@
 
     @csrf
 
-    <input type="hidden"
-           name="song_id"
-           value="{{ $song->id }}">
+    <input
+        type="hidden"
+        name="song_id"
+        value="{{ $song->id }}">
 
-    <button class="btn btn-danger">
+    <button class="favorite-btn">
 
         ❤️ Add Favorite
 
