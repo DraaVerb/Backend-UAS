@@ -51,6 +51,7 @@
             margin-left:25px;
 
             font-size:18px;
+            transition:.3s;
         }
 
         .menu a:hover{
@@ -103,6 +104,8 @@
             border-radius:30px;
 
             font-weight:bold;
+
+            transition:.3s;
         }
 
         .btn:hover{
@@ -136,6 +139,36 @@
             padding:25px;
 
             text-align:center;
+
+            transition:.3s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-8px);
+
+            box-shadow:
+                0 0 20px rgba(29,185,84,.2),
+                0 10px 30px rgba(0,0,0,.4);
+        }
+
+        .card h3{
+            margin-bottom:15px;
+        }
+
+        .card p{
+            color:#d9d9d9;
+        }
+
+        .card a{
+
+            color:#1DB954;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .card a:hover{
+            color:white;
         }
 
         footer{
@@ -164,6 +197,7 @@
         <a href="/">Home</a>
         <a href="/songs">Songs</a>
         <a href="/artists">Artists</a>
+        <a href="/playlists">Playlists</a>
 
     </div>
 
@@ -215,6 +249,22 @@
 
     </div>
 
+    <div class="card">
+
+        <h3>📂 Playlists</h3>
+
+        <p>
+            Create and organize your favorite playlists.
+        </p>
+
+        <br>
+
+        <a href="/playlists">
+            Open Playlist
+        </a>
+
+    </div>
+
 </div>
 
 <footer>
@@ -225,4 +275,3 @@
 
 </body>
 </html>
-
