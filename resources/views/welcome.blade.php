@@ -51,6 +51,7 @@
             margin-left:25px;
 
             font-size:18px;
+            transition:.3s;
         }
 
         .menu a:hover{
@@ -103,6 +104,8 @@
             border-radius:30px;
 
             font-weight:bold;
+
+            transition:.3s;
         }
 
         .btn:hover{
@@ -136,6 +139,36 @@
             padding:25px;
 
             text-align:center;
+
+            transition:.3s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-8px);
+
+            box-shadow:
+                0 0 20px rgba(29,185,84,.2),
+                0 10px 30px rgba(0,0,0,.4);
+        }
+
+        .card h3{
+            margin-bottom:15px;
+        }
+
+        .card p{
+            color:#d9d9d9;
+        }
+
+        .card a{
+
+            color:#1DB954;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .card a:hover{
+            color:white;
         }
 
         footer{
@@ -164,6 +197,8 @@
         <a href="/">Home</a>
         <a href="/songs">Songs</a>
         <a href="/artists">Artists</a>
+        <a href="/playlists">Playlists</a>
+        <a href="/favorites">Favorites</a>
 
     </div>
 
@@ -193,6 +228,12 @@
             Browse and manage your music collection.
         </p>
 
+        <br>
+
+        <a href="/songs">
+            Open Songs
+        </a>
+
     </div>
 
     <div class="card">
@@ -203,15 +244,58 @@
             Explore legendary artists and their stories.
         </p>
 
+        <br>
+
+        <a href="/artists">
+            Open Artists
+        </a>
+
     </div>
 
     <div class="card">
 
-        <h3>🎧 Spotify Style</h3>
+    <h3>🎧 Spotify Style</h3>
+
+    <p>
+        Modern interface inspired by Spotify.
+    </p>
+
+    <br>
+
+    <a href="/">
+        Explore
+    </a>
+
+</div>
+    <div class="card">
+
+        <h3>📂 Playlists</h3>
 
         <p>
-            Modern interface inspired by Spotify.
+            Create and organize your favorite playlists.
         </p>
+
+        <br>
+
+        <a href="/playlists">
+            Open Playlist
+        </a>
+
+    </div>
+
+    <div class="card">
+
+        <h3>❤️ Favorite Songs</h3>
+
+        <p>
+            Save your favorite music collection.
+        </p>
+
+        <br>
+
+        <a href="/favorites">
+            Open Favorites
+        </a>
 
     </div>
 
@@ -225,4 +309,3 @@
 
 </body>
 </html>
-

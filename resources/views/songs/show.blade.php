@@ -182,12 +182,33 @@
 
     </div>
 
+<div style="display:flex; gap:15px; margin-top:20px;">
+
+    <form action="/favorites" method="POST">
+
+        @csrf
+
+        <input
+            type="hidden"
+            name="song_id"
+            value="{{ $song->id }}">
+
+        <button class="back-btn">
+
+            ❤️ Add Favorite
+
+        </button>
+
+    </form>
+
     <a href="/songs"
        class="back-btn">
 
         ← Back to Songs
 
     </a>
+
+</div>
 
 </div>
 
