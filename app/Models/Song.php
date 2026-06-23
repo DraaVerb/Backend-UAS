@@ -14,8 +14,8 @@ class Song extends Model
         'genre_id'
     ];
 
-    public function genre()
-    {
-        return $this->belongsTo(Genre::class);
-    }
+    public function favorites()
+{
+    return $this->hasMany(Favorite::class);
+}
 }

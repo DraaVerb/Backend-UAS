@@ -198,6 +198,7 @@
         <a href="/songs">Songs</a>
         <a href="/artists">Artists</a>
         <a href="/playlists">Playlists</a>
+        <a href="/favorites">Favorites</a>
 
     </div>
 
@@ -263,8 +264,30 @@
             Open Playlist
         </a>
 
-    </div>
+    
+    <div class="card">
 
+    <h3>❤️ Favorite Songs</h3>
+
+    <p>
+
+        Save your favorite music collection.
+
+    </p>
+
+    <br>
+
+    <a href="/favorites"
+       style="
+       color:#1DB954;
+       text-decoration:none;
+       font-weight:bold;">
+
+       Open Favorites
+
+    </a>
+
+        </div>
 </div>
 
 <footer>

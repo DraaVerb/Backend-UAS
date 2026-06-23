@@ -41,3 +41,9 @@ Route::get('/playlists/{id}', [PlaylistController::class, 'show']);
 Route::get('/playlists/{id}/edit', [PlaylistController::class, 'edit']);
 Route::put('/playlists/{id}', [PlaylistController::class, 'update']);
 Route::delete('/playlists/{id}', [PlaylistController::class, 'destroy']);
+
+// Favorite Routes
+Route::get('/favorites', [FavoriteController::class,'index']);
+Route::post('/favorites', [FavoriteController::class,'store']);
+Route::get('/favorites/{id}', [FavoriteController::class,'show']);
+Route::delete('/favorites/{id}', [FavoriteController::class,'destroy']);
