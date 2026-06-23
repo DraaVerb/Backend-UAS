@@ -218,12 +218,21 @@
 
     </div>
 
-    <a href="/songs" class="back-btn">← Back to Songs</a>
-    <a href="/comments/create?song_id={{ $song->id }}" class="action-btn btn-comment">💬 Leave a Comment</a>
-    <a href="/ratings/create?song_id={{ $song->id }}" class="action-btn btn-rating">⭐ Rate this Song</a>
+    <div style="display:flex; gap:15px; margin-top:20px; flex-wrap:wrap;">
+
+        <form action="/favorites" method="POST" style="margin:0;">
+            @csrf
+            <input type="hidden" name="song_id" value="{{ $song->id }}">
+            <button class="back-btn" style="cursor:pointer; border:none;">❤️ Add Favorite</button>
+        </form>
+
+        <a href="/songs" class="back-btn">← Back to Songs</a>
+        <a href="/comments/create?song_id={{ $song->id }}" class="action-btn btn-comment">💬 Leave a Comment</a>
+        <a href="/ratings/create?song_id={{ $song->id }}" class="action-btn btn-rating">⭐ Rate this Song</a>
+
+    </div>
 
 </div>
 
 </body>
 </html>
-

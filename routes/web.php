@@ -7,6 +7,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RatingController;
 
@@ -14,23 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// =====================
+
 // Song Routes
-// =====================
 Route::get('/songs', [SongController::class, 'index']);
 Route::get('/songs/create', [SongController::class, 'create']);
 Route::post('/songs', [SongController::class, 'store']);
 Route::get('/songs/{id}', [SongController::class, 'show']);
-
-// =====================
-// Search Routes
-// =====================
 Route::get('/search', [SearchController::class, 'index']);
 Route::get('/search/result', [SearchController::class, 'result']);
-
-// =====================
-// Genre Routes
-// =====================
 Route::get('/genres', [GenreController::class, 'index']);
 Route::get('/genres/{id}', [GenreController::class, 'show']);
 
@@ -66,6 +58,14 @@ Route::get('/playlists/{id}', [PlaylistController::class, 'show']);
 Route::get('/playlists/{id}/edit', [PlaylistController::class, 'edit']);
 Route::put('/playlists/{id}', [PlaylistController::class, 'update']);
 Route::delete('/playlists/{id}', [PlaylistController::class, 'destroy']);
+
+// =====================
+// Favorite Routes
+// =====================
+Route::get('/favorites', [FavoriteController::class, 'index']);
+Route::post('/favorites', [FavoriteController::class, 'store']);
+Route::get('/favorites/{id}', [FavoriteController::class, 'show']);
+Route::delete('/favorites/{id}', [FavoriteController::class, 'destroy']);
 
 // =====================
 // Comment Routes
