@@ -5,14 +5,17 @@ use App\Http\Controllers\SongController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RatingController;
 
+
 use App\Models\Song;
 use App\Models\Artist;
 use App\Models\Genre;
+
 
 Route::get('/', function () {
 
@@ -49,7 +52,20 @@ Route::get('/artists/{id}/edit', [ArtistController::class, 'edit']);
 Route::put('/artists/{id}', [ArtistController::class, 'update']);
 Route::delete('/artists/{id}', [ArtistController::class, 'destroy']);
 
+// =====================
+// Album Routes
+// =====================
+Route::get('/albums', [AlbumController::class, 'index']);
+Route::get('/albums/create', [AlbumController::class, 'create']);
+Route::post('/albums', [AlbumController::class, 'store']);
+Route::get('/albums/{id}', [AlbumController::class, 'show']);
+Route::get('/albums/{id}/edit', [AlbumController::class, 'edit']);
+Route::put('/albums/{id}', [AlbumController::class, 'update']);
+Route::delete('/albums/{id}', [AlbumController::class, 'destroy']);
+
+// =====================
 // Playlist Routes
+// =====================
 Route::get('/playlists', [PlaylistController::class, 'index']);
 Route::get('/playlists/create', [PlaylistController::class, 'create']);
 Route::post('/playlists', [PlaylistController::class, 'store']);
@@ -58,7 +74,9 @@ Route::get('/playlists/{id}/edit', [PlaylistController::class, 'edit']);
 Route::put('/playlists/{id}', [PlaylistController::class, 'update']);
 Route::delete('/playlists/{id}', [PlaylistController::class, 'destroy']);
 
+// =====================
 // Favorite Routes
+
 Route::get('/favorites', [FavoriteController::class,'index']);
 Route::post('/favorites', [FavoriteController::class,'store']);
 Route::get('/favorites/{id}', [FavoriteController::class,'show']);
@@ -66,3 +84,27 @@ Route::delete('/favorites/{id}', [FavoriteController::class,'destroy']);
 
 Route::post('/comments', [CommentController::class, 'store']);
 Route::post('/ratings', [RatingController::class, 'store']);
+
+// =====================
+Route::get('/favorites', [FavoriteController::class, 'index']);
+Route::post('/favorites', [FavoriteController::class, 'store']);
+Route::get('/favorites/{id}', [FavoriteController::class, 'show']);
+Route::delete('/favorites/{id}', [FavoriteController::class, 'destroy']);
+
+// =====================
+// Comment Routes
+// =====================
+Route::get('/comments', [CommentController::class, 'index']);
+Route::get('/comments/create', [CommentController::class, 'create']);
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments/{id}', [CommentController::class, 'show']);
+Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
+
+// =====================
+// Rating Routes
+// =====================
+Route::get('/ratings', [RatingController::class, 'index']);
+Route::get('/ratings/create', [RatingController::class, 'create']);
+Route::post('/ratings', [RatingController::class, 'store']);
+Route::get('/ratings/{id}', [RatingController::class, 'show']);
+Route::delete('/ratings/{id}', [RatingController::class, 'destroy']);
