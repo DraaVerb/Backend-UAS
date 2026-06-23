@@ -180,6 +180,61 @@
             color:#d0d0d0;
         }
 
+        .stats{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:60px;
+}
+
+.stat-card{
+
+    width:220px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 0 20px rgba(29,185,84,.3),
+        0 10px 30px rgba(0,0,0,.5);
+}
+
+.stat-card h2{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+    color:#1DB954;
+}
+
+.stat-card p{
+
+    color:#dcdcdc;
+
+    font-size:18px;
+}
+
     </style>
 
 </head>
@@ -215,6 +270,36 @@
     <a href="/songs" class="btn">
         🎶 Manage Songs
     </a>
+
+</div>
+
+<br>
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <h2>{{ $totalSongs }}</h2>
+
+        <p>🎶 Songs</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>{{ $totalArtists }}</h2>
+
+        <p>🎤 Artists</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>{{ $totalGenres }}</h2>
+
+        <p>🎵 Genres</p>
+
+    </div>
 
 </div>
 

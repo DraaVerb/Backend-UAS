@@ -7,9 +7,24 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\RatingController;
+
+use App\Models\Song;
+use App\Models\Artist;
+use App\Models\Genre;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $totalSongs = Song::count();
+    $totalArtists = Artist::count();
+    $totalGenres = Genre::count();
+
+    return view('welcome', compact(
+        'totalSongs',
+        'totalArtists',
+        'totalGenres'
+    ));
 });
 
 
@@ -48,3 +63,6 @@ Route::get('/favorites', [FavoriteController::class,'index']);
 Route::post('/favorites', [FavoriteController::class,'store']);
 Route::get('/favorites/{id}', [FavoriteController::class,'show']);
 Route::delete('/favorites/{id}', [FavoriteController::class,'destroy']);
+
+Route::post('/comments', [CommentController::class, 'store']);
+Route::post('/ratings', [RatingController::class, 'store']);

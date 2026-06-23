@@ -37,7 +37,11 @@ class SongController extends Controller
 
     public function show($id)
     {
-        $song = Song::with('genre')->findOrFail($id);
+        $song = Song::with([
+                'genre',
+                'comments',
+                'ratings'
+        ])->findOrFail($id);
 
         return view('songs.show', compact('song'));
     }

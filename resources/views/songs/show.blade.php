@@ -136,6 +136,31 @@
             background:#1ed760;
         }
 
+        textarea{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:12px;
+
+            background:#2a2a2a;
+
+            color:white;
+
+            font-size:16px;
+        }
+
+        textarea:focus{
+
+            outline:none;
+
+            box-shadow:
+                0 0 10px rgba(29,185,84,.5);
+        }
+
     </style>
 
 </head>
@@ -209,6 +234,115 @@
     </a>
 
 </div>
+
+<hr style="margin-top:30px; border-color:#444;"><br>
+
+<div class="detail-item">
+
+    <h2 style="margin-bottom:20px;">
+        ⭐ Rate This Song
+    </h2>
+
+    <form action="/ratings" method="POST">
+
+        @csrf
+
+        <input
+            type="hidden"
+            name="song_id"
+            value="{{ $song->id }}">
+
+        <input
+            type="number"
+            name="rating"
+            min="1"
+            max="5"
+            placeholder="1 - 5">
+
+        <br><br>
+
+        <button class="back-btn">
+            Submit Rating
+        </button>
+
+    </form>
+
+</div>
+
+<br>
+
+<div class="detail-item">
+
+    <h2 style="margin-bottom:20px;">
+        💬 Add Comment
+    </h2>
+
+    <form action="/comments" method="POST">
+
+        @csrf
+
+        <input
+            type="hidden"
+            name="song_id"
+            value="{{ $song->id }}">
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Your name">
+
+        <br><br>
+
+        <textarea
+            name="comment"
+            placeholder="Comment"
+            style="
+                width:100%;
+                padding:14px;
+                border:none;
+                border-radius:12px;
+                background:#2a2a2a;
+                color:white;
+                font-size:16px;
+                height:120px;
+                resize:none;
+            "></textarea>
+
+        <br><br>
+
+        <button class="back-btn">
+            Submit Comment
+        </button>
+
+    </form>
+
+</div>
+
+<br><br>
+
+<br>
+
+<h2 style="margin-bottom:20px;">
+    💬 Comments
+</h2>
+
+@foreach($song->comments as $comment)
+
+<div class="detail-item">
+
+    <h3 style="color:#1DB954;">
+        {{ $comment->username }}
+    </h3>
+
+    <br>
+
+    <p style="color:#ddd;">
+        {{ $comment->comment }}
+    </p>
+
+</div>
+
+@endforeach
 
 </div>
 
